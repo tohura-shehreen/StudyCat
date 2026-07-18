@@ -1,16 +1,42 @@
-# React + Vite
+# StudyCat 🐱
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A cozy, device-based study timer. Focus with a countdown, Pomodoro, stopwatch,
+or break timer, earn fish for the time you focus, and spend them on cats,
+accessories, and room decorations. Every session is logged to a calendar so
+you can look back at any day's timeline.
 
-Currently, two official plugins are available:
+No accounts, no login — everything is saved to this browser/device via
+`localStorage`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Run it locally
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project structure
 
-## Expanding the Oxlint configuration
+```
+src/
+  data/constants.js        shop catalog, timer limits, colors — tune values here
+  hooks/useLocalStorageState.js   the "database": persists state to localStorage
+  context/StoreContext.jsx        fish, inventory, focus labels, session history
+  context/TimerContext.jsx        the actual ticking timer engine
+  components/
+    Room.jsx / Room.css           page 1 — landing room + HUD
+    ShopPanel.jsx                 page 2 — cats / decorations / accessories
+    CalendarModal.jsx             page 3 — month view
+    DayTimelineModal.jsx          page 4 — a single day's session timeline
+    TimerModal.jsx                page 5 — countdown / pomodoro / stopwatch / break setup
+    NotepadModal.jsx              page 6 — focus label colors + names
+    CatDisplay.jsx                the cat + equipped accessory
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+See `src/assets/README.md` for exactly where to drop in your own pixel art to
+replace the current CSS/SVG placeholders.
+
+## Deploying
+
+Push to GitHub, then import the repo in Vercel — it auto-detects the Vite
+build (`npm run build`, output `dist`). Every push to `main` redeploys.

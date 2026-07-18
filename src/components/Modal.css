@@ -1,0 +1,75 @@
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 18, 15, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  animation: overlay-in 0.15s ease;
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-panel {
+  position: relative;
+  width: 90%;
+  max-height: 84vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 26px 28px;
+  border-radius: 4px;
+  animation: panel-in 0.16s ease;
+}
+
+@keyframes panel-in {
+  from {
+    transform: translateY(10px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-panel--blue {
+  background: var(--blue-panel);
+  border: 4px solid var(--blue-panel-border);
+  box-shadow: 8px 8px 0 var(--blue-panel-shadow);
+}
+
+.modal-panel--sage {
+  background: var(--panel-bg);
+  border: 4px solid var(--sage-deep);
+  box-shadow: 8px 8px 0 #b9c9b6;
+}
+
+.modal-panel-topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.modal-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.16);
+}

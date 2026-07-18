@@ -1,0 +1,12 @@
+.cat-display {
+  position: relative;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.15));
+}
+
+.cat-sprite {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
